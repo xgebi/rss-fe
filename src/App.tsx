@@ -21,6 +21,7 @@ import {ChannelItemsList} from "./pages/ChannelItemsList";
 import {ChannelList} from "./pages/ChannelList";
 import {EpisodePage} from "./pages/EpisodePage";
 import {ArticlePage} from "./pages/ArticlePage";
+import {SubscriptionSettings} from "./pages/SubscriptionSettings";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="/channel/:id/detail" element={<RequireAuthorization><ChannelDetail /></RequireAuthorization>} />
           <Route path="/episode/:id" element={<RequireAuthorization><EpisodePage /></RequireAuthorization>} />
           <Route path="/article/:id" element={<RequireAuthorization><ArticlePage /></RequireAuthorization>} />
+          <Route path="/subscriptions" element={<RequireAuthorization><SubscriptionSettings /></RequireAuthorization>} />
         </Routes>
       </BrowserRouter>
     </RecoilRoot>

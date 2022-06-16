@@ -1,5 +1,11 @@
+import React from 'react';
+import {Navigation} from "../components/shared/Navigation";
+
 export const Home = () => {
   return (
-    <h1>This is home</h1>
+    <main>
+      <Navigation />
+      <h1>This is home</h1>
+    </main>
   )
 }

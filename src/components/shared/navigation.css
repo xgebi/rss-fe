@@ -1,0 +1,25 @@
+ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+ul li {
+    margin: 0;
+}
+
+ul li a {
+    border: 2px solid #88D5FF;
+    padding: .5rem 1rem;
+}
+
+.active {
+    background: #005C8F;
+    color: white;
+}
+
+ul li a:hover,
+ul li a:active {
+    background: #005C8F;
+    color: white;
+}

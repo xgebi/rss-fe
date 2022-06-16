@@ -18,7 +18,8 @@ export const Login = () => {
   const [user, setUser] = useRecoilState(UserState);
   let navigate = useNavigate();
 
-  async function login() {
+  async function login(e: any) { //TBD figure out TypeScript and events
+    e.preventDefault()
     const result = await UserService.authenticate({username, password});
     if (result.id.length === 0) {
       setError(true);
@@ -28,8 +29,8 @@ export const Login = () => {
   }
 
   return (
-    <form>
-      <Error type={ErrorTypes.ERROR} message={"Couldn't log in"} />
+    <form onSubmit={login}>
+      {error && <Error type={ErrorTypes.ERROR} message={"Couldn't log in"} />}
       <Input type={"text"} label={"Email"} value={username} onChange={setUsername} />
       <Input type={"password"} label={"Password"} value={password} onChange={setPassword} />
       <Button label={"Login"} onClick={login}/>
