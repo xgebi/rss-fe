@@ -1,0 +1,7 @@
+.error-message {
+    padding: 1rem .5rem;
+}
+
+.error-message.error {
+    background: lightcoral;
+}
