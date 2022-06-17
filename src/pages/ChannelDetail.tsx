@@ -1,13 +1,15 @@
-import React, {useEffect, useState} from 'react';
+import React, {ChangeEventHandler, useEffect, useState} from 'react';
 import {Navigation} from "../components/shared/Navigation";
 import FeedType from "../types/FeedType";
 import FeedService from "../services/FeedService";
-import {useParams, useRoutes} from "react-router-dom";
+import {useNavigate, useParams, useRoutes} from "react-router-dom";
+import {navigate} from "@storybook/addon-links";
 
 export const ChannelDetail = () => {
   const [editingMode, setEditingMode] = useState(false);
   const [feed, setFeed] = useState<FeedType | null>(null);
-  const { id } = useParams()
+  const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,11 +26,47 @@ export const ChannelDetail = () => {
   }
 
   function saveChannel() {
-
+    const fetchData = async () => {
+      if (feed) {
+        setFeed(await FeedService.updateFeed(feed));
+      }
+    }
+    fetchData()
+      .catch(console.error)
   }
 
   function deleteChannel() {
+    const fetchData = async () => {
+      if (id) {
+        await FeedService.deleteFeed(id)
+      }
+    }
+    fetchData()
+      .then(() => {
+        navigate("/subscriptions", { replace: true })
+      })
+      .catch(console.error)
+  }
 
+  function setTitle(e: any): void {
+    setFeed({
+      ...feed,
+      title: e.target.value
+    } as FeedType);
+  }
+
+  function setUrl(e: any): void {
+    setFeed({
+      ...feed,
+      uri: e.target.value
+    } as FeedType);
+  }
+
+  function setDescription(e: any): void {
+    setFeed({
+      ...feed,
+      description: e.target.value
+    } as FeedType);
   }
 
   if (!feed) {
@@ -56,12 +94,12 @@ export const ChannelDetail = () => {
     return (
       <main>
         <Navigation/>
-        <h1>{ feed.title }</h1>
+        <h1><input type={"text"} value={ feed.title } onChange={setTitle} /></h1>
         <h2>Description</h2>
-        <p>{feed.description}</p>
+        <p><textarea onChange={setDescription} value={feed.description}></textarea></p>
         <h2>URL</h2>
-        <p>{feed.uri}</p>
-        <button onClick={saveChannel}>Cancel</button>
+        <p><input type={"text"} value={feed.uri} onChange={setUrl} /></p>
+        <button onClick={saveChannel}>Save</button>
         <button onClick={toggleEditingMode}>Cancel</button>
         <hr />
         <button onClick={deleteChannel}>Delete</button>
