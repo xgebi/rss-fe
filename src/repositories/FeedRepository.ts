@@ -8,7 +8,6 @@ class FeedRepository {
       },
     });
     const response = await tempResponse.json();
-    sessionStorage.removeItem('token');
     return response;
   }
 }

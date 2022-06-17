@@ -4,6 +4,7 @@ import {User} from "../types/User";
 
 class UserRepository {
   static async authenticate(userDetails: LoginDetails): Promise<User> {
+
     const tempResponse = await fetch(`/api/authenticate`, {
       method: 'POST',
       headers: {
@@ -25,7 +26,6 @@ class UserRepository {
       },
     });
     const response = await tempResponse.json();
-    sessionStorage.removeItem('token');
     return response;
   }
 }

@@ -29,11 +29,13 @@ export const Login = () => {
   }
 
   return (
-    <form onSubmit={login}>
-      {error && <Error type={ErrorTypes.ERROR} message={"Couldn't log in"} />}
-      <Input type={"text"} label={"Email"} value={username} onChange={setUsername} />
-      <Input type={"password"} label={"Password"} value={password} onChange={setPassword} />
-      <Button label={"Login"} onClick={login}/>
-    </form>
+    <main className={"page login"}>
+      <form onSubmit={login}>
+        {error && <Error type={ErrorTypes.ERROR} message={"Couldn't log in"} />}
+        <Input type={"text"} label={"Email"} value={username} onChange={setUsername} />
+        <Input type={"password"} label={"Password"} value={password} onChange={setPassword} />
+        <Button label={"Login"} onClick={login}/>
+      </form>
+    </main>
   )
 }

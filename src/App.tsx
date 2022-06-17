@@ -4,7 +4,7 @@ import './App.css';
 import {
   BrowserRouter,
   Routes,
-  Route,
+    Route,
 } from "react-router-dom";
 import {
   RecoilRoot,
@@ -28,14 +28,14 @@ function App() {
     <RecoilRoot>
       <BrowserRouter>
         <Routes>
-          <Route path="/login" element={<Login />} />
           <Route path="/" element={<RequireAuthorization><Home /></RequireAuthorization>} />
           <Route path="/channel/:type" element={<RequireAuthorization><ChannelList /></RequireAuthorization>} />
-          <Route path="/channel/:id/list" element={<RequireAuthorization><ChannelItemsList /></RequireAuthorization>} />
-          <Route path="/channel/:id/detail" element={<RequireAuthorization><ChannelDetail /></RequireAuthorization>} />
+          <Route path="/channel/list/:id" element={<RequireAuthorization><ChannelItemsList /></RequireAuthorization>} />
+          <Route path="/channel/detail/:id" element={<RequireAuthorization><ChannelDetail /></RequireAuthorization>} />
           <Route path="/episode/:id" element={<RequireAuthorization><EpisodePage /></RequireAuthorization>} />
           <Route path="/article/:id" element={<RequireAuthorization><ArticlePage /></RequireAuthorization>} />
           <Route path="/subscriptions" element={<RequireAuthorization><SubscriptionSettings /></RequireAuthorization>} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </RecoilRoot>

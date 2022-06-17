@@ -11,6 +11,7 @@ export const Navigation = () => {
           <NavLink
             to="/"
             className={({ isActive }) => isActive ? 'active' : '' }
+            replace={true}
           >
             Home
           </NavLink>
@@ -19,6 +20,7 @@ export const Navigation = () => {
           <NavLink
             to="/channel/articles"
             className={({ isActive }) => isActive ? 'active' : '' }
+            replace={true}
           >
             Articles
           </NavLink>
@@ -27,6 +29,7 @@ export const Navigation = () => {
           <NavLink
             to="/channel/podcasts"
             className={({ isActive }) => isActive ? 'active' : '' }
+            replace={true}
           >
             Podcasts
           </NavLink>
@@ -35,6 +38,7 @@ export const Navigation = () => {
           <NavLink
             to="/subscriptions"
             className={({ isActive }) => isActive ? 'active' : '' }
+            replace={true}
           >
             Subscriptions
           </NavLink>
