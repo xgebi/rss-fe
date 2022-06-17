@@ -6,10 +6,9 @@ import {Link} from "react-router-dom";
 
 export const SubscriptionSettings = () => {
   const [feeds, setFeeds] = useState<FeedType[]>([]);
-  console.log("3");
+
   useEffect(() => {
     const fetchData = async () => {
-      console.log("damn", feeds);
       setFeeds(await FeedService.getFeeds());
     }
     fetchData()
