@@ -6,7 +6,8 @@ import {useNavigate, useParams, useRoutes} from "react-router-dom";
 import {navigate} from "@storybook/addon-links";
 
 export const FeedDetail = () => {
-  const [editingMode, setEditingMode] = useState(false);
+  const { id } = useParams();
+  const [editingMode, setEditingMode] = useState(id && id.toLowerCase() === 'new');
   const [feed, setFeed] = useState<FeedType>({
           title: '',
           description: '',
@@ -17,7 +18,6 @@ export const FeedDetail = () => {
           updated_at: null
 
         });
-  const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {

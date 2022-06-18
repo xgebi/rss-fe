@@ -36,7 +36,7 @@ export const SubscriptionSettings = () => {
       <main>
         <Navigation />
         <h1>Subscriptions</h1>
-        <button>Add new</button>
+        <Link to={`/channel/detail/new`}>Add new</Link>
         {!feeds && <p>Loading feeds</p>}
 
         {feeds && <table>
