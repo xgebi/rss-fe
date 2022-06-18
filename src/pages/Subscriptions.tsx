@@ -4,7 +4,7 @@ import {Navigation} from "../components/shared/Navigation";
 import FeedType from "../types/FeedType";
 import {Link} from "react-router-dom";
 
-export const SubscriptionSettings = () => {
+export const Subscriptions = () => {
   const [feeds, setFeeds] = useState<FeedType[]>([]);
 
   useEffect(() => {

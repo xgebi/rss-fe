@@ -4,6 +4,8 @@ import FeedType from "../types/FeedType";
 import FeedService from "../services/FeedService";
 import {useNavigate, useParams, useRoutes} from "react-router-dom";
 import {navigate} from "@storybook/addon-links";
+import {useUriValid} from "../functions/useUriValid";
+import {Input} from "../components/shared/Input";
 
 export const FeedDetail = () => {
   const { id } = useParams();
@@ -18,6 +20,7 @@ export const FeedDetail = () => {
           updated_at: null
 
         });
+  const isUriValid = useUriValid(feed.uri);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -36,6 +39,9 @@ export const FeedDetail = () => {
 
   function saveChannel() {
     const fetchData = async () => {
+      if (!isUriValid) {
+        return;
+      }
       if (feed.id.length > 0) {
         setFeed(await FeedService.updateFeed(feed));
       } else {
@@ -60,17 +66,17 @@ export const FeedDetail = () => {
       .catch(console.error)
   }
 
-  function setTitle(e: any): void {
+  function setTitle(title: string): void {
     setFeed({
       ...feed,
-      title: e.target.value
+      title: title
     } as FeedType);
   }
 
-  function setUrl(e: any): void {
+  function setUri(uri: string): void {
     setFeed({
       ...feed,
-      uri: e.target.value
+      uri: uri
     } as FeedType);
   }
 
@@ -106,11 +112,18 @@ export const FeedDetail = () => {
     return (
       <main>
         <Navigation/>
-        <h1><input type={"text"} value={ feed.title } onChange={setTitle} /></h1>
+        <Input
+          label={"Title"}
+          value={feed.title}
+          onChange={setTitle}
+        />
         <h2>Description</h2>
         <p><textarea onChange={setDescription} value={feed.description}></textarea></p>
-        <h2>URL</h2>
-        <p><input type={"text"} value={feed.uri} onChange={setUrl} /></p>
+        <Input
+          label={"Title"}
+          value={feed.uri}
+          onChange={setUri}
+        />
         <button onClick={saveChannel}>Save</button>
         <button onClick={toggleEditingMode}>Cancel</button>
         <hr />

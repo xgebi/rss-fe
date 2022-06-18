@@ -21,7 +21,7 @@ import {FeedItemsList} from "./pages/FeedItemsList";
 import {FeedList} from "./pages/FeedList";
 import {EpisodePage} from "./pages/EpisodePage";
 import {ArticlePage} from "./pages/ArticlePage";
-import {SubscriptionSettings} from "./pages/SubscriptionSettings";
+import {Subscriptions} from "./pages/Subscriptions";
 
 function App() {
   return (
@@ -34,7 +34,7 @@ function App() {
           <Route path="/channel/detail/:id" element={<RequireAuthorization><FeedDetail /></RequireAuthorization>} />
           <Route path="/episode/:id" element={<RequireAuthorization><EpisodePage /></RequireAuthorization>} />
           <Route path="/article/:id" element={<RequireAuthorization><ArticlePage /></RequireAuthorization>} />
-          <Route path="/subscriptions" element={<RequireAuthorization><SubscriptionSettings /></RequireAuthorization>} />
+          <Route path="/subscriptions" element={<RequireAuthorization><Subscriptions /></RequireAuthorization>} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>

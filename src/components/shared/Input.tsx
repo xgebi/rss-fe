@@ -3,7 +3,7 @@ import './input.css';
 
 
 interface InputProps {
-  type: string;
+  type?: string;
   label: string;
   onChange: Dispatch<SetStateAction<any>>;
   value: any;
