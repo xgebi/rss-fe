@@ -26,7 +26,7 @@ export const Subscriptions = () => {
     feeds.forEach((feed, index) => {
       rows.push(<tr key={index}>
         <td>{feed["title"]}</td>
-        <td><Link to={`/channel/detail/${feed["id"]}`}>Edit</Link></td>
+        <td><Link to={`/feed/detail/${feed["id"]}`}>Edit</Link></td>
       </tr>)
     })
     return rows;
@@ -36,7 +36,7 @@ export const Subscriptions = () => {
       <main>
         <Navigation />
         <h1>Subscriptions</h1>
-        <Link to={`/channel/detail/new`}>Add new</Link>
+        <Link to={`/feed/detail/new`}>Add new</Link>
         {!feeds && <p>Loading feeds</p>}
 
         {feeds && <table>

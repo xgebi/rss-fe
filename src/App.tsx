@@ -29,9 +29,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<RequireAuthorization><Home /></RequireAuthorization>} />
-          <Route path="/channel/:type" element={<RequireAuthorization><FeedList /></RequireAuthorization>} />
-          <Route path="/channel/list/:id" element={<RequireAuthorization><FeedItemsList /></RequireAuthorization>} />
-          <Route path="/channel/detail/:id" element={<RequireAuthorization><FeedDetail /></RequireAuthorization>} />
+          <Route path="/feed/:type" element={<RequireAuthorization><FeedList /></RequireAuthorization>} />
+          <Route path="/feed/list/:id" element={<RequireAuthorization><FeedItemsList /></RequireAuthorization>} />
+          <Route path="/feed/detail/:id" element={<RequireAuthorization><FeedDetail /></RequireAuthorization>} />
           <Route path="/episode/:id" element={<RequireAuthorization><EpisodePage /></RequireAuthorization>} />
           <Route path="/article/:id" element={<RequireAuthorization><ArticlePage /></RequireAuthorization>} />
           <Route path="/subscriptions" element={<RequireAuthorization><Subscriptions /></RequireAuthorization>} />

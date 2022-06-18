@@ -37,7 +37,7 @@ export const FeedDetail = () => {
     setEditingMode(!editingMode);
   }
 
-  function saveChannel() {
+  function saveFeed() {
     const fetchData = async () => {
       if (!isUriValid) {
         return;
@@ -53,7 +53,7 @@ export const FeedDetail = () => {
       .catch(console.error)
   }
 
-  function deleteChannel() {
+  function deleteFeed() {
     const fetchData = async () => {
       if (id) {
         await FeedService.deleteFeed(id)
@@ -124,10 +124,10 @@ export const FeedDetail = () => {
           value={feed.uri}
           onChange={setUri}
         />
-        <button onClick={saveChannel}>Save</button>
+        <button onClick={saveFeed}>Save</button>
         <button onClick={toggleEditingMode}>Cancel</button>
         <hr />
-        <button onClick={deleteChannel}>Delete</button>
+        <button onClick={deleteFeed}>Delete</button>
       </main>
     );
   }
