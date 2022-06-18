@@ -1,8 +1,7 @@
 import React from 'react';
-import {RequireAuthorization} from "../functions/RequireAuthorization";
 import {Navigation} from "../components/shared/Navigation";
 
-export const ChannelItemsList = () => {
+export const FeedItemsList = () => {
   return (
     <main>
       <Navigation />
