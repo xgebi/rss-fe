@@ -16,7 +16,7 @@ import {
 import {Login} from "./pages/Login";
 import {Home} from "./pages/Home";
 import {RequireAuthorization} from "./functions/RequireAuthorization";
-import {ChannelDetail} from "./pages/ChannelDetail";
+import {FeedDetail} from "./pages/FeedDetail";
 import {ChannelItemsList} from "./pages/ChannelItemsList";
 import {ChannelList} from "./pages/ChannelList";
 import {EpisodePage} from "./pages/EpisodePage";
@@ -31,7 +31,7 @@ function App() {
           <Route path="/" element={<RequireAuthorization><Home /></RequireAuthorization>} />
           <Route path="/channel/:type" element={<RequireAuthorization><ChannelList /></RequireAuthorization>} />
           <Route path="/channel/list/:id" element={<RequireAuthorization><ChannelItemsList /></RequireAuthorization>} />
-          <Route path="/channel/detail/:id" element={<RequireAuthorization><ChannelDetail /></RequireAuthorization>} />
+          <Route path="/channel/detail/:id" element={<RequireAuthorization><FeedDetail /></RequireAuthorization>} />
           <Route path="/episode/:id" element={<RequireAuthorization><EpisodePage /></RequireAuthorization>} />
           <Route path="/article/:id" element={<RequireAuthorization><ArticlePage /></RequireAuthorization>} />
           <Route path="/subscriptions" element={<RequireAuthorization><SubscriptionSettings /></RequireAuthorization>} />

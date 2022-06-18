@@ -5,7 +5,7 @@ import FeedService from "../services/FeedService";
 import {useNavigate, useParams, useRoutes} from "react-router-dom";
 import {navigate} from "@storybook/addon-links";
 
-export const ChannelDetail = () => {
+export const FeedDetail = () => {
   const [editingMode, setEditingMode] = useState(false);
   const [feed, setFeed] = useState<FeedType | null>(null);
   const { id } = useParams();
@@ -29,6 +29,7 @@ export const ChannelDetail = () => {
     const fetchData = async () => {
       if (feed) {
         setFeed(await FeedService.updateFeed(feed));
+        setEditingMode(false);
       }
     }
     fetchData()
