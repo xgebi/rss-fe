@@ -21,8 +21,7 @@ class FeedRepository {
         'Authorization': `Token ${sessionStorage.getItem('token')}`
       },
     });
-    const response = await tempResponse.json();
-    return response;
+    return await tempResponse.json();
   }
 
   static async createFeed(feed: FeedType) {
@@ -34,8 +33,7 @@ class FeedRepository {
       },
       body: JSON.stringify(feed),
     });
-    const response = await tempResponse.json();
-    return response;
+    return await tempResponse.json();
   }
 
   static async updateFeed(feed: FeedType) {
@@ -47,8 +45,7 @@ class FeedRepository {
       },
       body: JSON.stringify(feed),
     });
-    const response = await tempResponse.json();
-    return response;
+    return await tempResponse.json();
   }
 
   static async deleteFeed(id: string) {
@@ -59,8 +56,7 @@ class FeedRepository {
         'Authorization': `Token ${sessionStorage.getItem('token')}`
       },
     });
-    const response = await tempResponse.json();
-    return response;
+    return await tempResponse.json();
   }
 }
 
