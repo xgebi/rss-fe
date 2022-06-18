@@ -7,13 +7,22 @@ import {navigate} from "@storybook/addon-links";
 
 export const FeedDetail = () => {
   const [editingMode, setEditingMode] = useState(false);
-  const [feed, setFeed] = useState<FeedType | null>(null);
+  const [feed, setFeed] = useState<FeedType>({
+          title: '',
+          description: '',
+          uri: '',
+          added: null,
+          created_at: null,
+          id: '',
+          updated_at: null
+
+        });
   const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
-      if (id) {
+      if (id && id.toLowerCase() !== 'new') {
         setFeed(await FeedService.getFeed(id));
       }
     }
@@ -27,10 +36,12 @@ export const FeedDetail = () => {
 
   function saveChannel() {
     const fetchData = async () => {
-      if (feed) {
+      if (feed.id.length > 0) {
         setFeed(await FeedService.updateFeed(feed));
-        setEditingMode(false);
+      } else {
+        setFeed(await FeedService.createFeed(feed));
       }
+      setEditingMode(false);
     }
     fetchData()
       .catch(console.error)

@@ -1,4 +1,4 @@
-import React, {ReactElement, useEffect, useLayoutEffect, useState} from 'react';
+import React, {ReactElement, useEffect, useState} from 'react';
 import FeedService from "../services/FeedService";
 import {Navigation} from "../components/shared/Navigation";
 import FeedType from "../types/FeedType";
