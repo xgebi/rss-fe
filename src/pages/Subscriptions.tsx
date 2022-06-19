@@ -1,9 +1,14 @@
 import React, {ReactElement, useEffect, useState} from 'react';
 import FeedService from "../services/FeedService";
 import {Navigation} from "../components/shared/Navigation";
-import FeedType from "../types/FeedType";
+import {FeedType} from "../types/FeedType";
 import {Link} from "react-router-dom";
 
+/**
+ * Page that displays all subscribed feeds
+ *
+ * @constructor
+ */
 export const Subscriptions = () => {
   const [feeds, setFeeds] = useState<FeedType[]>([]);
 
@@ -26,6 +31,7 @@ export const Subscriptions = () => {
     feeds.forEach((feed, index) => {
       rows.push(<tr key={index}>
         <td>{feed["title"]}</td>
+        <th>{feed.feedType}</th>
         <td><Link to={`/feed/detail/${feed["id"]}`}>Edit</Link></td>
       </tr>)
     })
@@ -43,6 +49,7 @@ export const Subscriptions = () => {
           <thead>
           <tr>
             <th>Name</th>
+            <th>Type</th>
             <th>Action</th>
           </tr>
           </thead>

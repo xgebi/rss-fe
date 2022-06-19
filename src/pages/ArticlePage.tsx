@@ -5,6 +5,13 @@ import PostService from "../services/PostService";
 import parse from "html-react-parser";
 import {useParams} from "react-router-dom";
 
+/**
+ * Article page renders page for a single episode
+ * Note: This page will be merged with Episode page when I see
+ * what they have in common
+ *
+ * @constructor
+ */
 export const ArticlePage = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState(false);

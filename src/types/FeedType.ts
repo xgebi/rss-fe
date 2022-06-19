@@ -4,8 +4,18 @@ export interface FeedType {
   uri: string;
   description: string;
   added: Date | null;
-  created_at: Date | null;
-  updated_at: Date | null;
+  createdAt: Date | null;
+  updatedAt: Date | null;
+  feedType: string;
 }
 
-export default FeedType;
+export interface ReceivedFeedType {
+  id: string;
+  title: string;
+  uri: string;
+  description: string;
+  added: Date | null;
+  created_at: Date | null;
+  updated_at: Date | null;
+  feed_type: string;
+}

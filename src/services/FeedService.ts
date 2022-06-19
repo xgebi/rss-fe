@@ -1,5 +1,5 @@
 import FeedRepository from "../repositories/FeedRepository";
-import FeedType from "../types/FeedType";
+import {FeedType} from "../types/FeedType";
 
 class FeedService {
   static async getFeeds() {
@@ -14,6 +14,11 @@ class FeedService {
     return FeedRepository.createFeed(feed);
   }
 
+  /**
+   * Method that calls repository update feed method
+   *
+   * @param {FeedType} feed
+   */
   static async updateFeed(feed: FeedType) {
     return FeedRepository.updateFeed(feed);
   }

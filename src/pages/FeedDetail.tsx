@@ -1,25 +1,31 @@
 import React, {ChangeEventHandler, useEffect, useState} from 'react';
 import {Navigation} from "../components/shared/Navigation";
-import FeedType from "../types/FeedType";
+import {FeedType} from "../types/FeedType";
 import FeedService from "../services/FeedService";
 import {useNavigate, useParams, useRoutes} from "react-router-dom";
 import {navigate} from "@storybook/addon-links";
 import {useUriValid} from "../functions/useUriValid";
 import {Input} from "../components/shared/Input";
+import PostTypes from "../types/PostTypes";
 
+/**
+ * Displays details for a feed
+ *
+ * @constructor
+ */
 export const FeedDetail = () => {
   const { id } = useParams();
   const [editingMode, setEditingMode] = useState(id && id.toLowerCase() === 'new');
   const [feed, setFeed] = useState<FeedType>({
-          title: '',
-          description: '',
-          uri: '',
-          added: null,
-          created_at: null,
-          id: '',
-          updated_at: null
-
-        });
+    title: '',
+    description: '',
+    uri: '',
+    added: null,
+    createdAt: null,
+    id: '',
+    updatedAt: null,
+    feedType: ''
+  });
   const isUriValid = useUriValid(feed.uri);
   const navigate = useNavigate();
 
@@ -87,6 +93,13 @@ export const FeedDetail = () => {
     } as FeedType);
   }
 
+  function setFeedType(e: any): void {
+    setFeed({
+      ...feed,
+      feedType: e.target.value
+    } as FeedType);
+  }
+
   if (!feed) {
     return (
       <main>
@@ -124,6 +137,11 @@ export const FeedDetail = () => {
           value={feed.uri}
           onChange={setUri}
         />
+        <h2>Feed type</h2>
+        <select onSelect={setFeedType}>
+          <option selected={feed.uri === PostTypes.ARTICLE} value={PostTypes.ARTICLE}>Article</option>
+          <option selected={feed.uri === PostTypes.EPISODE} value={PostTypes.EPISODE}>Podcast</option>
+        </select>
         <button onClick={saveFeed}>Save</button>
         <button onClick={toggleEditingMode}>Cancel</button>
         <hr />
