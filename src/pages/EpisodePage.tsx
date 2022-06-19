@@ -38,7 +38,7 @@ export const EpisodePage = () => {
         .then((data) => {
           setPost(data);
           setLoading(false);
-
+          console.log(data);
           if (!data.read) {
             PostService.markAsRead(id)
               .catch((e) => console.error)

@@ -94,10 +94,22 @@ export const FeedDetail = () => {
   }
 
   function setFeedType(e: any): void {
+    console.log(e);
     setFeed({
       ...feed,
       feedType: e.target.value
     } as FeedType);
+  }
+
+  /**
+   * This function is intended to be temporary
+   */
+  function displayFeedType() {
+    switch (feed.feedType) {
+      case PostTypes.EPISODE: return <span>Podcast</span>;
+      case PostTypes.ARTICLE: return <span>Blog</span>;
+      default: return '';
+    }
   }
 
   if (!feed) {
@@ -118,6 +130,8 @@ export const FeedDetail = () => {
         <p>{feed.description}</p>
         <h2>URL</h2>
         <p>{feed.uri}</p>
+        <h2>Feed type</h2>
+        <p>{displayFeedType()}</p>
         <button onClick={toggleEditingMode}>Edit</button>
       </main>
     );
@@ -137,11 +151,13 @@ export const FeedDetail = () => {
           value={feed.uri}
           onChange={setUri}
         />
-        <h2>Feed type</h2>
-        <select onSelect={setFeedType}>
-          <option selected={feed.uri === PostTypes.ARTICLE} value={PostTypes.ARTICLE}>Article</option>
-          <option selected={feed.uri === PostTypes.EPISODE} value={PostTypes.EPISODE}>Podcast</option>
-        </select>
+        <section>
+          <h2>Feed type</h2>
+          <select onChange={setFeedType} defaultValue={feed.uri}>
+            <option value={PostTypes.ARTICLE}>Blog</option>
+            <option value={PostTypes.EPISODE}>Podcast</option>
+          </select>
+        </section>
         <button onClick={saveFeed}>Save</button>
         <button onClick={toggleEditingMode}>Cancel</button>
         <hr />

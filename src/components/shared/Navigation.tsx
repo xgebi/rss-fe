@@ -27,7 +27,7 @@ export const Navigation = () => {
         </li>
         <li>
           <NavLink
-            to="/feed/podcasts"
+            to="/feed/episodes"
             className={({ isActive }) => isActive ? 'active' : '' }
             replace={true}
           >
