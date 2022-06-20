@@ -3,6 +3,11 @@ import { NavLink } from "react-router-dom";
 
 import './navigation.css';
 
+/**
+ * Definition of a Navigation component
+ *
+ * @constructor
+ */
 export const Navigation = () => {
   return (
     <nav>

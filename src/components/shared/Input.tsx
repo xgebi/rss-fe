@@ -1,7 +1,9 @@
 import React, {ChangeEvent, Dispatch, SetStateAction} from 'react';
 import './input.css';
 
-
+/**
+ * Interface defining props for Input
+ */
 interface InputProps {
   type?: string;
   label: string;
@@ -9,6 +11,16 @@ interface InputProps {
   value: any;
 }
 
+/**
+ * Definition of an Input component
+ *
+ * @param {string} type
+ * @param {string} label
+ * @param {any} value
+ * @param {Function} onChange
+ * @param {Array} props
+ * @constructor
+ */
 export const Input = ({
   type = "text",
   label,
