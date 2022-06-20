@@ -27,6 +27,16 @@ class PostService {
         pubDate: post.article_content.pub_date,
         title: post.article_content.title
       },
+      feed: {
+        id: post.feed.id,
+        title: post.feed.title,
+        uri: post.feed.uri,
+        description: post.feed.description,
+        added: post.feed.added,
+        createdAt: post.feed.created_at,
+        updatedAt: post.feed.updated_at,
+        feedType: post.feed.feed_type
+      },
       read: post.read
     }
   }
@@ -52,6 +62,16 @@ class PostService {
         media_link: post.articleContent.mediaLink,
         pub_date: post.articleContent.pubDate,
         title: post.articleContent.title
+      },
+      feed: {
+        id: post.feed.id,
+        title: post.feed.title,
+        uri: post.feed.uri,
+        description: post.feed.description,
+        added: post.feed.added,
+        created_at: post.feed.createdAt,
+        updated_at: post.feed.updatedAt,
+        feed_type: post.feed.feedType
       },
       read: post.read
     }

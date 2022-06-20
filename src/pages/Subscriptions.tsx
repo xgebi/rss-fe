@@ -31,7 +31,7 @@ export const Subscriptions = () => {
     feeds.forEach((feed, index) => {
       rows.push(<tr key={index}>
         <td>{feed["title"]}</td>
-        <th>{feed.feedType}</th>
+        <td>{feed.feedType}</td>
         <td><Link to={`/feed/detail/${feed["id"]}`}>Edit</Link></td>
       </tr>)
     })

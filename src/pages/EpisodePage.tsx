@@ -27,7 +27,17 @@ export const EpisodePage = () => {
       mediaLink: null,
       pubDate: null,
       title: null
-    }, id: "", read: false
+    }, id: "", read: false,
+    feed: {
+      id: "",
+      title: "",
+      uri: "",
+      description: "",
+      added: null,
+      createdAt: null,
+      updatedAt: null,
+      feedType: "",
+    }
   })
 
   useEffect(() => {

@@ -1,3 +1,5 @@
+import {FeedType, ReceivedFeedType} from "./FeedType";
+
 export interface PostData {
   id:string;
 	read:boolean;
@@ -12,7 +14,8 @@ export interface PostData {
 		itunesDuration:string | null;
 		itunesSummary:string | null;
 		link:string | null;
-	}
+	},
+	feed: FeedType;
 }
 
 export interface ReceivedPostData {
@@ -29,5 +32,6 @@ export interface ReceivedPostData {
 		itunes_duration:string | null;
 		itunes_summary:string | null;
 		link:string | null;
-	}
+	},
+	feed: ReceivedFeedType;
 }
