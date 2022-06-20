@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# RSS-FE
+
+At the moment this project is in functional prototype stage.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
