@@ -24,7 +24,7 @@ export const FeedDetail = () => {
     createdAt: null,
     id: '',
     updatedAt: null,
-    feedType: ''
+    feedType: PostTypes.ARTICLE
   });
   const isUriValid = useUriValid(feed.uri);
   const navigate = useNavigate();
@@ -153,7 +153,7 @@ export const FeedDetail = () => {
         />
         <section>
           <h2>Feed type</h2>
-          <select onChange={setFeedType} defaultValue={feed.uri}>
+          <select onChange={setFeedType} defaultValue={feed.feedType}>
             <option value={PostTypes.ARTICLE}>Blog</option>
             <option value={PostTypes.EPISODE}>Podcast</option>
           </select>
