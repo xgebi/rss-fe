@@ -4,6 +4,7 @@ import {Link, useParams} from "react-router-dom";
 import PostService from "../services/PostService";
 import {PostData} from "../types/PostData";
 import PostTypes from "../types/PostTypes";
+import './PodcastFeedList.css'
 
 export const ArticleFeedList = () => {
   const [loading, setLoading] = useState(false);
@@ -31,7 +32,7 @@ export const ArticleFeedList = () => {
     const result = []
     for (const row of posts) {
       result.push(<tr>
-        <td className={`${row.read ? "unread" : ""}`}>{ row.articleContent.title }</td>
+        <td className={`${!row.read ? "unread" : ""}`}>{ row.articleContent.title }</td>
         <td><Link to={`/article/${row.id}`} replace={true} aria-label={`Go to ${row.articleContent.title}`}>Read</Link></td>
       </tr>)
     }
