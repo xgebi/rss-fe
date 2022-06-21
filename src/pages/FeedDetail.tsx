@@ -147,7 +147,7 @@ export const FeedDetail = () => {
         <h2>Description</h2>
         <p><textarea onChange={setDescription} value={feed.description}></textarea></p>
         <Input
-          label={"Title"}
+          label={"URL"}
           value={feed.uri}
           onChange={setUri}
         />
