@@ -23,7 +23,7 @@ export const Navigation = () => {
         </li>
         <li>
           <NavLink
-            to="/feed/articles"
+            to="/feed/article"
             className={({ isActive }) => isActive ? 'active' : '' }
             replace={true}
           >
@@ -32,7 +32,7 @@ export const Navigation = () => {
         </li>
         <li>
           <NavLink
-            to="/feed/episodes"
+            to="/feed/episode"
             className={({ isActive }) => isActive ? 'active' : '' }
             replace={true}
           >
