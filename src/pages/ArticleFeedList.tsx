@@ -34,6 +34,7 @@ export const ArticleFeedList = () => {
     for (const row of posts) {
       result.push(<tr>
         <td className={`${!row.read ? "unread" : ""}`}>{ row.articleContent.title }</td>
+        <td>{ row.feed.title }</td>
         <td><Link to={`/article/${row.id}`} replace={true} aria-label={`Go to ${row.articleContent.title}`}>Read</Link></td>
       </tr>)
     }
@@ -52,6 +53,7 @@ export const ArticleFeedList = () => {
         <thead>
           <tr>
             <th>Title</th>
+            <th>Blog</th>
             <th>Action</th>
           </tr>
         </thead>
