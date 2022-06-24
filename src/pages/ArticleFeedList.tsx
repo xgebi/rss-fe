@@ -24,6 +24,7 @@ export const ArticleFeedList = () => {
     setLoading(true);
     PostService.refreshPosts(PostTypes.ARTICLE)
       .then((data) => {
+        setPosts(data);
         setLoading(false);
       });
   }
