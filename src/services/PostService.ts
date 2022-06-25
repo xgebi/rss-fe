@@ -24,6 +24,7 @@ class PostService {
         itunesSummary: post.article_content.itunes_summary,
         link: post.article_content.link,
         mediaLink: post.article_content.media_link,
+        mediaType: post.article_content.media_type,
         pubDate: post.article_content.pub_date,
         title: post.article_content.title
       },
@@ -60,6 +61,7 @@ class PostService {
         itunes_summary: post.articleContent.itunesSummary,
         link: post.articleContent.link,
         media_link: post.articleContent.mediaLink,
+        media_type: post.articleContent.mediaType,
         pub_date: post.articleContent.pubDate,
         title: post.articleContent.title
       },
