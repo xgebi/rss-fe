@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import {Link, useParams} from "react-router-dom";
-import './PodcastFeedList.css'
+import './FeedList.css'
 import {FeedListPropsType} from "../types/FeedListPropsType";
 
 export const ArticleFeedList = (props: FeedListPropsType) => {
   function displayPosts() {
     const result = []
     for (const row of props.data) {
-      result.push(<tr key={row.id}>
-        <td className={`${!row.read ? "unread" : ""}`}>{ row.articleContent.title }</td>
+      result.push(<tr key={row.id} className={`${!row.read ? "unread" : ""}`}>
+        <td>{ row.articleContent.title }</td>
         <td>{ row.feed.title }</td>
         <td><Link to={`/article/${row.id}`} replace={true} aria-label={`Go to ${row.articleContent.title}`}>Read</Link></td>
       </tr>)

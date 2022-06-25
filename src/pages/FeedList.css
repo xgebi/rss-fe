@@ -1,0 +1,11 @@
+.unread {
+    font-weight: bold;
+}
+
+table tbody tr:nth-child(2n) {
+    background: antiquewhite;
+}
+
+table tbody td {
+    padding: .25rem 1rem;
+}

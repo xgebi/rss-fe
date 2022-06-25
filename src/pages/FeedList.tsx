@@ -4,7 +4,7 @@ import {Link, useParams} from "react-router-dom";
 import PostService from "../services/PostService";
 import {PostData} from "../types/PostData";
 import PostTypes from "../types/PostTypes";
-import './PodcastFeedList.css'
+import './FeedList.css'
 import {PodcastFeedList} from "./PodcastFeedList";
 import {ArticleFeedList} from "./ArticleFeedList";
 
@@ -15,7 +15,6 @@ export const FeedList = () => {
 
   useEffect(() => {
     setLoading(true);
-    // TODO consider adding posts into store
     if (type) {
       PostService.fetchPosts(type)
         .then((data) => {
