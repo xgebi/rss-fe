@@ -1,0 +1,14 @@
+article {
+    width: 55ch;
+    margin: 0 auto; /* Old but still good */
+    font-size: 1.25rem;
+    font-family: 'Merriweather', serif;
+}
+
+article h1 {
+    font-size: 4rem;
+}
+
+article h2 {
+    font-size: 3rem;
+}

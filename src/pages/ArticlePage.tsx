@@ -4,6 +4,7 @@ import {PostData} from "../types/PostData";
 import PostService from "../services/PostService";
 import parse from "html-react-parser";
 import {useParams} from "react-router-dom";
+import './PostPage.css';
 
 /**
  * Article page renders page for a single episode
@@ -62,12 +63,12 @@ export const ArticlePage = () => {
     <main>
       <Navigation />
       {loading && <p>Please wait</p>}
-      {!loading && <>
+      {!loading && <article>
         <h1>{post.articleContent.title}</h1>
         {post.articleContent.content?.length === 0 && <p>{post.articleContent.description}</p>}
         {/* Below, wait for IDE update, red underlines don't make me happy */}
         {post.articleContent.content && post.articleContent.content?.length > 0 && <p>{parse(post.articleContent.content)}</p>}
-      </>}
+      </article>}
     </main>
   )
 }

@@ -4,6 +4,7 @@ import PostService from "../services/PostService";
 import {useParams} from "react-router-dom";
 import {PostData} from "../types/PostData";
 import parse from "html-react-parser";
+import './PostPage.css';
 
 /**
  * Episode page renders page for a single episode
@@ -62,7 +63,7 @@ export const EpisodePage = () => {
       <Navigation/>
       {loading && <p>Please wait</p>}
 
-      {!loading && <>
+      {!loading && <article>
         <h1>{post.articleContent.title}</h1>
         <p>Duration: {post.articleContent.itunesDuration}</p>
         {post.articleContent.mediaLink && <audio
@@ -72,7 +73,7 @@ export const EpisodePage = () => {
           <code>audio</code> element.
         </audio>}
         {post.articleContent.itunesSummary && post.articleContent.itunesSummary?.length > 0 && <p>{parse(post.articleContent.itunesSummary)}</p>}
-      </>}
+      </article>}
     </main>
   )
 }

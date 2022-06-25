@@ -1,3 +1,29 @@
+@font-face {
+  font-family: 'Merriweather';
+  font-weight: normal;
+  src: local('Merriweather'), url('./fonts/Merriweather-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  font-weight: normal;
+  font-style: italic;
+  src: local('Merriweather'), url('./fonts/Merriweather-Italic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  font-weight: bold;
+  src: local('Merriweather'), url('./fonts/Merriweather-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  font-weight: bold;
+  font-style: italic;
+  src: local('Merriweather'), url('./fonts/Merriweather-BoldItalic.ttf') format('truetype');
+}
+
 .App {
   text-align: center;
 }
