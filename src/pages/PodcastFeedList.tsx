@@ -10,6 +10,7 @@ export const PodcastFeedList = (props: FeedListPropsType) => {
         <td>{ row.articleContent.title }</td>
         <td>{ row.articleContent.itunesDuration }</td>
         <td>{ row.feed.title }</td>
+        <td>{ row.articleContent.mediaType }</td>
         <td><Link to={`/episode/${row.id}`} replace={true} aria-label={`Go to ${row.articleContent.title}`}>Read</Link></td>
       </tr>)
     }
@@ -23,6 +24,7 @@ export const PodcastFeedList = (props: FeedListPropsType) => {
         <th>Title</th>
         <th>Duration</th>
         <th>Podcast</th>
+        <th>Type</th>
         <th>Action</th>
       </tr>
       </thead>

@@ -11,6 +11,7 @@ export interface PostData {
 		description:string | null;
 		pubDate:string | null;
 		mediaLink:string | null;
+		mediaType:string | null;
 		itunesDuration:string | null;
 		itunesSummary:string | null;
 		link:string | null;
@@ -29,6 +30,7 @@ export interface ReceivedPostData {
 		description: string | null;
 		pub_date: string | null;
 		media_link:string | null;
+		media_type:string | null;
 		itunes_duration:string | null;
 		itunes_summary:string | null;
 		link:string | null;

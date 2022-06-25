@@ -2,7 +2,7 @@
     font-weight: bold;
 }
 
-table tbody tr:nth-child(2n) {
+table tbody tr:nth-child(2n+1) {
     background: antiquewhite;
 }
 
