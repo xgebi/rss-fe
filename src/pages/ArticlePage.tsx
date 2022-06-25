@@ -47,6 +47,7 @@ export const ArticlePage = () => {
       // TODO consider adding posts into store
       PostService.fetchPost(id)
         .then((data) => {
+          console.log(data)
           setPost(data);
           setLoading(false);
 
@@ -65,7 +66,7 @@ export const ArticlePage = () => {
       {loading && <p>Please wait</p>}
       {!loading && <article>
         <h1>{post.articleContent.title}</h1>
-        {post.articleContent.content?.length === 0 && <p>{post.articleContent.description}</p>}
+        {(!post.articleContent.content || post.articleContent.content?.length === 0) && <p>{post.articleContent.description}</p>}
         {/* Below, wait for IDE update, red underlines don't make me happy */}
         {post.articleContent.content && post.articleContent.content?.length > 0 && <p>{parse(post.articleContent.content)}</p>}
       </article>}
