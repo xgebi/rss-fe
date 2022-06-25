@@ -26,6 +26,7 @@ export const EpisodePage = () => {
       itunesSummary: null,
       link: null,
       mediaLink: null,
+      mediaType: null,
       pubDate: null,
       title: null
     }, id: "", read: false,
