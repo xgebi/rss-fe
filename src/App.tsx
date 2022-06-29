@@ -19,8 +19,7 @@ import {RequireAuthorization} from "./functions/RequireAuthorization";
 import {FeedDetail} from "./pages/FeedDetail";
 import {FeedItemsList} from "./pages/FeedItemsList";
 import {FeedList} from "./pages/FeedList";
-import {EpisodePage} from "./pages/EpisodePage";
-import {ArticlePage} from "./pages/ArticlePage";
+import {PostPage} from "./pages/PostPage";
 import {Subscriptions} from "./pages/Subscriptions";
 
 function App() {
@@ -32,8 +31,7 @@ function App() {
           <Route path="/feed/:type" element={<RequireAuthorization><FeedList /></RequireAuthorization>} />
           <Route path="/feed/list/:id" element={<RequireAuthorization><FeedItemsList /></RequireAuthorization>} />
           <Route path="/feed/detail/:id" element={<RequireAuthorization><FeedDetail /></RequireAuthorization>} />
-          <Route path="/episode/:id" element={<RequireAuthorization><EpisodePage /></RequireAuthorization>} />
-          <Route path="/article/:id" element={<RequireAuthorization><ArticlePage /></RequireAuthorization>} />
+          <Route path="/:type/:id" element={<RequireAuthorization><PostPage /></RequireAuthorization>} />
           <Route path="/subscriptions" element={<RequireAuthorization><Subscriptions /></RequireAuthorization>} />
           <Route path="/login" element={<Login />} />
         </Routes>

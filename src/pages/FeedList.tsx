@@ -5,8 +5,8 @@ import PostService from "../services/PostService";
 import {PostData} from "../types/PostData";
 import PostTypes from "../types/PostTypes";
 import './FeedList.css'
-import {PodcastFeedList} from "./PodcastFeedList";
-import {ArticleFeedList} from "./ArticleFeedList";
+import {PodcastFeedList} from "../components/PodcastFeedList";
+import {ArticleFeedList} from "../components/ArticleFeedList";
 
 export const FeedList = () => {
   const [loading, setLoading] = useState(false);
