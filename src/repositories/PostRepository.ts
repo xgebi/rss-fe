@@ -25,10 +25,11 @@ class PostRepository {
    * Fetches paginated posts
    * @param {string} type
    * @param {number} page
+   * @param {number} size
    * @returns Promise<ReceivedPostData[]>
    */
-  static async fetchPosts(type: string, page: number): Promise<ReceivedPostData[]> {
-    const tempResponse = await fetch(`/api/post.json?type=${type}&page=${page}`, {
+  static async fetchPosts(type: string, page: number, size: number): Promise<ReceivedPostData[]> {
+    const tempResponse = await fetch(`/api/post.json?type=${type}&page=${page}&size=${size}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

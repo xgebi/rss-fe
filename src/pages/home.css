@@ -1,0 +1,10 @@
+.page.home {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 5rem auto;
+    gap: 1rem
+}
+
+.page.home nav {
+    grid-column: 1 / 3;
+}

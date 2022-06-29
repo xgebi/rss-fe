@@ -94,10 +94,11 @@ class PostService {
    *
    * @param {string} type
    * @param {number} page
+   * @param {number} size
    * @returns Promise<PostData[]>
    */
-  static async fetchPosts(type: string, page: number): Promise<PostData[]> {
-    return (await PostRepository.fetchPosts(type, page)).map(this.transformFromBeToFe);
+  static async fetchPosts(type: string, page: number = 1, size: number = 30): Promise<PostData[]> {
+    return (await PostRepository.fetchPosts(type, page, size)).map(this.transformFromBeToFe);
   }
 
   /**
