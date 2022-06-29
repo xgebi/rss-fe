@@ -93,10 +93,11 @@ class PostService {
    * Function to fetch all posts from API
    *
    * @param {string} type
+   * @param {number} page
    * @returns Promise<PostData[]>
    */
-  static async fetchPosts(type: string): Promise<PostData[]> {
-    return (await PostRepository.fetchPosts(type)).map(this.transformFromBeToFe);
+  static async fetchPosts(type: string, page: number): Promise<PostData[]> {
+    return (await PostRepository.fetchPosts(type, page)).map(this.transformFromBeToFe);
   }
 
   /**

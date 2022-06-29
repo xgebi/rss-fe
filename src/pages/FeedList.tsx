@@ -11,14 +11,18 @@ import {ArticleFeedList} from "../components/ArticleFeedList";
 export const FeedList = () => {
   const [loading, setLoading] = useState(false);
   const [posts, setPosts] = useState<PostData[]>([]);
+  const [nextPage, setNextPage] = useState<number>(1);
+  const [lastBatchLength, setLastBatchLength] = useState<number>(0)
   const { type } = useParams();
 
   useEffect(() => {
     setLoading(true);
     if (type) {
-      PostService.fetchPosts(type)
+      PostService.fetchPosts(type, 1)
         .then((data) => {
           setPosts(data);
+          setNextPage(nextPage + 1);
+          setLastBatchLength(data.length);
           setLoading(false);
         });
     }
@@ -30,6 +34,21 @@ export const FeedList = () => {
       PostService.refreshPosts(type)
         .then((data) => {
           setPosts(data);
+          setNextPage(1);
+          setLastBatchLength(data.length);
+          setLoading(false);
+        });
+    }
+  }
+
+  function loadMorePosts() {
+    setLoading(true);
+    if (type) {
+      PostService.fetchPosts(type, nextPage)
+        .then((data) => {
+          setPosts(posts.concat(data));
+          setNextPage(nextPage + 1);
+          setLastBatchLength(data.length);
           setLoading(false);
         });
     }
@@ -45,6 +64,7 @@ export const FeedList = () => {
       {loading && <p>Please wait</p>}
       {!loading && type === PostTypes.EPISODE && <PodcastFeedList data={posts} /> }
       {!loading && type === PostTypes.ARTICLE && <ArticleFeedList data={posts} /> }
+      {lastBatchLength === 30 && <button onClick={loadMorePosts}>Load more</button>}
     </main>
   )
 }
