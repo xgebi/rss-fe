@@ -20,7 +20,10 @@ export const FeedList = () => {
     if (type) {
       PostService.fetchPosts(type, 1)
         .then((data) => {
-          setStates(data);
+          setPosts(data);
+          setNextPage(2);
+          setLastBatchLength(data.length);
+          setLoading(false);
         });
     }
   }, [type]);
@@ -30,7 +33,10 @@ export const FeedList = () => {
     if (type) {
       PostService.refreshPosts(type)
         .then((data) => {
-          setStates(data);
+          setPosts(data);
+          setNextPage(2);
+          setLastBatchLength(data.length);
+          setLoading(false);
         });
     }
   }
@@ -40,16 +46,12 @@ export const FeedList = () => {
     if (type) {
       PostService.fetchPosts(type, nextPage)
         .then((data) => {
-          setStates(data);
+          setPosts(posts.concat(data));
+          setNextPage(nextPage + 1);
+          setLastBatchLength(data.length);
+          setLoading(false);
         });
     }
-  }
-
-  function setStates(data: PostData[]) {
-    setPosts(posts.concat(data));
-    setNextPage(nextPage + 1);
-    setLastBatchLength(data.length);
-    setLoading(false);
   }
 
   return (

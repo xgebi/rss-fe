@@ -9,7 +9,7 @@ export const ArticleFeedList = (props: FeedListPropsType) => {
       result.push(<tr key={row.id} className={`${!row.read ? "unread" : ""}`}>
         <td>{ row.articleContent.title }</td>
         <td>{ row.feed.title }</td>
-        <td><Link to={`/article/${row.id}`} replace={true} aria-label={`Go to ${row.articleContent.title}`}>Read</Link></td>
+        <td><Link to={`/post/article/${row.id}`} replace={true} aria-label={`Go to ${row.articleContent.title}`}>Read</Link></td>
       </tr>)
     }
     return result;
