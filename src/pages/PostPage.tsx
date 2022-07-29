@@ -32,7 +32,10 @@ export const PostPage = () => {
 			mediaType: null,
 			pubDate: null,
 			title: null
-		}, id: "", read: false,
+		},
+		id: "",
+		read: false,
+		currentTime: 0,
 		feed: {
 			id: "",
 			title: "",

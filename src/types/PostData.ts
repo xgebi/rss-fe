@@ -3,6 +3,7 @@ import {FeedType, ReceivedFeedType} from "./FeedType";
 export interface PostData {
   id:string;
 	read:boolean;
+	currentTime: number | null;
 	articleContent:{
 		id:string;
 		title:string | null;
@@ -22,6 +23,7 @@ export interface PostData {
 export interface ReceivedPostData {
   id: string;
 	read:boolean;
+	current_time: number | null;
 	article_content:{
 		id: string;
 		title: string | null;

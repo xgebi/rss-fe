@@ -15,6 +15,7 @@ class PostService {
   static transformFromBeToFe(post: ReceivedPostData): PostData {
     return {
       id: post.id,
+      currentTime: post.current_time,
       articleContent: {
         content: post.article_content.content,
         description: post.article_content.description,
@@ -52,6 +53,7 @@ class PostService {
   static transformFromFeToBe(post: PostData): ReceivedPostData {
     return {
       id: post.id,
+      current_time: post.currentTime,
       article_content: {
         content: post.articleContent.content,
         description: post.articleContent.description,
@@ -109,6 +111,10 @@ class PostService {
    */
   static async markAsRead(id: string): Promise<boolean> {
     return PostRepository.updatePost(id, {read: true})
+  }
+
+  static async updateCurrentTime(id: string, currentTime: number): Promise<boolean> {
+    return PostRepository.updatePost(id, {current_time: currentTime})
   }
 
   /**
