@@ -61,6 +61,11 @@ export const EpisodeDisplay = (props: PostPropsType) => {
         Your browser does not support the
         <code>video</code> element.
       </video>}
+			<h2>Description</h2>
+			{props.post.articleContent.description && (!props.post.articleContent.content || props.post.articleContent.content?.length === 0) && <p>{parse(props.post.articleContent.description)}</p>}
+			<h2>Content</h2>
+			{props.post.articleContent.content && props.post.articleContent.content?.length > 0 && <p>{parse(props.post.articleContent.content)}</p>}
+			<h2>Summary</h2>
 			{props.post.articleContent.itunesSummary && props.post.articleContent.itunesSummary?.length > 0 &&
         <p>{parse(props.post.articleContent.itunesSummary)}</p>}
 		</article>
