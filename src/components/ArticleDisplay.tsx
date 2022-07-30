@@ -1,6 +1,7 @@
 import React from 'react';
 import parse from "html-react-parser";
 import {PostPropsType} from "../types/PostPropsType";
+import './common-display.css';
 
 export const ArticleDisplay = (props: PostPropsType) => {
 	return (

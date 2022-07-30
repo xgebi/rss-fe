@@ -2,6 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import parse from "html-react-parser";
 import {PostPropsType} from "../types/PostPropsType";
 import PostService from "../services/PostService";
+import './common-display.css';
 
 export const EpisodeDisplay = (props: PostPropsType) => {
 	const [updateInterval, setUpdateInterval] = useState<any>(null);
