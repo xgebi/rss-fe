@@ -24,7 +24,8 @@ export const FeedDetail = () => {
     createdAt: null,
     id: '',
     updatedAt: null,
-    feedType: PostTypes.ARTICLE
+    feedType: PostTypes.ARTICLE,
+    lastSuccessfulUpdate: null,
   });
   const isUriValid = useUriValid(feed.uri);
   const navigate = useNavigate();

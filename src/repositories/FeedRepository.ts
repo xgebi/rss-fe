@@ -20,7 +20,8 @@ class FeedRepository {
       added: feed.added,
       createdAt: feed.created_at,
       updatedAt: feed.updated_at,
-      feedType: feed.feed_type
+      feedType: feed.feed_type,
+      lastSuccessfulUpdate: feed.last_successful_update,
     }
   }
 
@@ -40,7 +41,8 @@ class FeedRepository {
       added: feed.added,
       created_at: feed.createdAt,
       updated_at: feed.updatedAt,
-      feed_type: feed.feedType
+      feed_type: feed.feedType,
+      last_successful_update: feed.lastSuccessfulUpdate,
     }
   }
 

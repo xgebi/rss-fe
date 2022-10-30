@@ -7,6 +7,7 @@ export interface FeedType {
   createdAt: Date | null;
   updatedAt: Date | null;
   feedType: string;
+  lastSuccessfulUpdate: Date | null;
 }
 
 export interface ReceivedFeedType {
@@ -18,4 +19,5 @@ export interface ReceivedFeedType {
   created_at: Date | null;
   updated_at: Date | null;
   feed_type: string;
+  last_successful_update: Date | null;
 }

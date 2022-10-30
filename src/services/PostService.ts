@@ -37,7 +37,8 @@ class PostService {
         added: post.feed.added,
         createdAt: post.feed.created_at,
         updatedAt: post.feed.updated_at,
-        feedType: post.feed.feed_type
+        feedType: post.feed.feed_type,
+        lastSuccessfulUpdate: post.feed.last_successful_update
       },
       read: post.read
     }
@@ -75,7 +76,8 @@ class PostService {
         added: post.feed.added,
         created_at: post.feed.createdAt,
         updated_at: post.feed.updatedAt,
-        feed_type: post.feed.feedType
+        feed_type: post.feed.feedType,
+        last_successful_update: post.feed.lastSuccessfulUpdate
       },
       read: post.read
     }

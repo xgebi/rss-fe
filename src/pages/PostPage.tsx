@@ -45,6 +45,7 @@ export const PostPage = () => {
 			createdAt: null,
 			updatedAt: null,
 			feedType: "",
+			lastSuccessfulUpdate: null,
 		}
 	})
 

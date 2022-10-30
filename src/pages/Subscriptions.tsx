@@ -29,10 +29,12 @@ export const Subscriptions = () => {
       return rows;
     }
     feeds.forEach((feed, index) => {
+      console.log(feed)
       rows.push(<tr key={index}>
         <td>{feed["title"]}</td>
         <td>{feed.feedType}</td>
         <td><Link to={`/feed/detail/${feed["id"]}`}>Edit</Link></td>
+        <td>{feed.lastSuccessfulUpdate && (new Date(feed.lastSuccessfulUpdate)).toISOString()}</td>
       </tr>)
     })
     return rows;
@@ -51,6 +53,7 @@ export const Subscriptions = () => {
             <th>Name</th>
             <th>Type</th>
             <th>Action</th>
+            <th>Last successful update</th>
           </tr>
           </thead>
           <tbody>
